@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modern Portfolio</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body{
+            background: #0b0b14;
+            cursor: crosshair;
+            color: white;
+        }
+         
+        html {
+    scroll-behavior: smooth;
+}
+        /* MAIN CONTAINER */
+
+        .container{
+            width: 92%;
+            margin: 40px auto;
+            min-height: 100vh;
+
+            border-radius: 30px;
+
+            background-color: black;
+
+            background-image:
+            linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+
+            background-size: 40px 40px;
+
+            padding-bottom: 100px;
+
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* NAVBAR */
+
+        nav{
+            width: 95%;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 25px;
+
+            background: rgba(5,5,5,0.9);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 18px;
+
+            position: sticky;
+            top: 20px;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(10px);
+        }
+
+        /* LOGO */
+
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .circle{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bold;
+        }
+
+        /* NAV LINKS */
+
+        .nav-links{
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a{
+            text-decoration: none;
+            color: white;
+
+            font-size: 14px;
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover{
+            background: #161616;
+            color: #999;
+        }
+
+        .active{
+            background: #161616;
+        }
+
+        /* CONTACT BUTTON */
+
+        .contact-btn{
+            background: white;
+            color: black;
+
+            padding: 14px 28px;
+
+            border-radius: 10px;
+            border: none;
+
+            font-weight: 600;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover{
+            transform: scale(1.05);
+        }
+
+        /* HERO SECTION */
+
+        .hero{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+
+            margin-top: 80px;
+        }
+
+        .hero img{
+            width: 420px;
+            height: 520px;
+
+            object-fit: cover;
+
+            border-radius: 250px 250px 0 0;
+
+            border: 5px solid white;
+
+            transition: 0.4s;
+        }
+
+        .hero img:hover{
+            transform: scale(1.03);
+        }
+
+        .hero h1{
+            font-size: 65px;
+            line-height: 1.1;
+
+            margin-top: 30px;
+        }
+
+        .hero p{
+            margin-top: 20px;
+            color: #9e9e9e;
+            font-size: 18px;
+        }
+
+        /* HIRE BUTTON */
+
+        .hire-btn{
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 15px 35px;
+
+            background: white;
+            color: black;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .hire-btn:hover{
+            transform: scale(1.05);
+        }
+
+        /* SECTION DESIGN */
+
+        .content-section{
+            width: 88%;
+            margin: 120px auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            align-items: center;
+
+            background: rgba(255,255,255,0.03);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 25px;
+
+            padding: 50px;
+        }
+
+        /* TEXT SIDE */
+
+        .section-text h2{
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .section-text p{
+            color: #9e9e9e;
+            line-height: 1.8;
+            font-size: 17px;
+                text-align: justify;
+                max-width: 550px;
+        }
+
+        /* IMAGE SIDE */
+
+        .section-image img{
+            width: 100%;
+            border-radius: 20px;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+        }
+
+        .section-image img:hover{
+            transform: scale(1.03);
+        }
+
+        /* SOCIAL ICONS */
+
+        .social-icons{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+
+            margin-top: 50px;
+            font-size: 22px;
+        }
+
+        .social-icons i{
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .social-icons i:hover{
+            transform: translateY(-5px);
+            color: #999;
+        }
+
+        /* FOOTER */
+
+        footer{
+            text-align: center;
+            margin-top: 80px;
+            color: #888;
+
+            padding-bottom: 30px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px){
+
+            nav{
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links{
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .hero h1{
+                font-size: 40px;
+            }
+
+            .hero img{
+                width: 300px;
+                height: 400px;
+            }
+
+            .content-section{
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-text h2{
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+
+        <nav>
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="circle">
+                    K
+                </div>
+
+                <h2>Kate</h2>
+
+            </div>
+
+            <!-- NAV LINKS -->
+
+            <div class="nav-links">
+
+                <a class="active" href="#home"><b>Home</b></a>
+
+                <a href="#summary"><b>Summary</b></a>
+
+                <a href="#technical"><b>Skills</b></a>
+
+                <a href="#experience"><b>Experience</b></a>
+
+                <a href="#projects"><b>Projects</b></a>
+
+                <a href="#education"><b>Education</b></a>
+
+            </div>
+
+            <!-- CONTACT BUTTON -->
+<a href="#contact" class="contact-btn">
+    Contact
+</a>
+
+        </nav>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero" id="home">
+
+            <img src="your-image.jpg" alt="Profile Image">
+
+            <h1>
+                 Hi, I’m Kate — Web Developer <br>
+                 I create stunning websites and applications.
+            </h1>
+
+            <p>
+                Transforming ideas into elegant and functional digital experiences.
+            </p>
+
+            <a class="hire-btn" href="hireme.html">
+                Hire Me
+            </a>
+            
+
+        </section>
+
+        <!-- SUMMARY SECTION -->
+
+        <section class="content-section" id="summary">
+
+            <div class="section-text">
+
+                <h2>Summary</h2>
+
+                <p>
+                   <p>Flutter Mobile App Frontend Developer with hands-on experience in building responsive, 
+    scalable, and user-friendly mobile applications. Skilled in UI implementation, REST API integration,  state management and performance optimization. Passionate about clean architecture,
+     reusable components, and seamless mobile experiences.</p>
+                </p>
+
+            </div>
+
+            <div class="section-image">
+
+                <!-- <img src="workspace.jpg" alt="Workspace"> -->
+
+            </div>
+
+        </section>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+
+        <section class="content-section" id="technical">
+
+            <div class="section-text">
+
+                <h2>Technical Skills</h2>
+
+               <p><b>Languages:</b> Dart<br> <b> Framework:</b> Flutter<br> <b>Frontend:</b> Responsive UI design, Custom widgets, Form validation, Navigation and Routing<br>
+                 <b>State Management:</b> setState, basic state handling <br><b>API Integration:</b> RESTful APIs, JSON parsing, Authentication flows<br><b>Local Storage:</b> GetStorage/ Shared Preferences<br><b>Tools:</b> Github, Git, 
+    Postman<br> <b>Other:</b> Light & Dark theme implementation, performance optimisation</p>
+
+            </div>
+
+            <div class="section-image">
+
+                <!-- <img src="workspace.jpg" alt="Skills Image"> -->
+
+            </div>
+
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+
+        <section class="content-section" id="experience">
+
+            <div class="section-text">
+
+                <h2>Experience</h2>
+
+                <p>
+                    <p><b>Mobile App Frontend Developer - Deebug Institute, Benin City</b><br> 
+  Developed responsive and user-friendly FLutter Mobile interfaces following modern UI/UX standards 
+  <br>
+  Integrate Restful APIs and authentication workflows
+    <br>
+  Built reusable widgets to improve maintainablility and scalabiity
+    <br>
+  Implemented persistent user sessions using local storage.
+    <br>
+  Optimised widget rebuild logic to improve app performance
+    <br>
+   Collaborated with backend developers to ensure smooth API communication.
+</p> 
+                </p>
+
+            </div>
+
+            <div class="section-image">
+
+                <!-- <img src="workspace.jpg" alt="Experience Image"> -->
+
+            </div>
+
+        </section>
+
+        <!-- PROJECTS SECTION -->
+
+        <section class="content-section" id="projects">
+
+            <div class="section-text">
+
+                <h2>Projects</h2>
+                 
+                <h3> Post application(Flutter Frontend)</h3>
+                 <p>
+               Built Login/Signup screens with valdation and JWT authentication integration 
+               <br>
+              Implemented a dynamic post listing and deletion functionality
+            </p>
+            <br>
+
+            <h3>Note-Taking App</h3>
+
+            <p>
+                Designed create/edit note interface with local storage persistence.
+            </p>
+
+            </div>
+
+            <div class="section-image">
+
+                <!-- <img src="workspace.jpg" alt="Projects Image"> -->
+
+            </div>
+
+        </section>
+
+        <!-- EDUCATION SECTION -->
+
+        <section class="content-section" id="education">
+
+            <div class="section-text">
+
+                <h2>Education</h2>
+
+                <p>  B.SC Computer Science - University of Benin, Benin City, Edo State.
+                    <br>
+                    My educational background has strengthened my design,
+                    development, and problem-solving skills.
+                </p>
+
+            </div>
+
+            <div class="section-image">
+
+                <!-- <img src="nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg" alt="Education Image"> -->
+
+            </div>
+
+        </section>
+        <!-- CONTACT SECTION -->
+
+<section class="content-section" id="contact">
+
+    <div class="section-text">
+
+        <h2>Contact</h2>
+
+        <p>
+            <b>Email:</b> kateomigie44@gmail.com<br>
+            <b>Phone:</b> +234 81 430 95923<br>
+            <b>Location:</b> Lagos, Nigeria<br><br>
+
+            Feel free to reach out for collaborations, freelance work, or tech opportunities.
+            <br>
+             You can also connect with me on social platforms below.
+        </p>
+
+    </div>
+
+    <div class="section-image">
+
+        <p style="color:#9e9e9e;">
+            <!-- You can also connect with me on social platforms below. -->
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- SOCIAL ICONS -->
+
+        <div class="social-icons">
+
+            <i class="fa-brands fa-github"></i>
+
+            <i class="fa-brands fa-linkedin"></i>
+
+            <i class="fa-brands fa-instagram"></i>
+
+             <i class="fa-brands fa-whatsapp"></i>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>© 2026 Kate Portfolio</p>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>

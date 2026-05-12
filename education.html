@@ -1,0 +1,133 @@
+ <!-- <!DOCTYPE html>
+<html>
+     <title>Background Image</title>
+    <style>
+        body {
+            background-image: url("marvin-meyer-SYTO3xs06fU-unsplash.jpg"); /* path to your image */
+            background-size: cover;            /* makes it fill the screen */
+           /* background-repeat: no-repeat;      /* prevents repeating */
+            background-position: center;   /* centers the image */
+            color: black;    
+        }
+    </style>
+</head>
+    <body>
+        <p>B.SC Cmputer Science - University of Benin, Benin City, Edo State.</p>  
+    </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+
+        /* Remove default spacing */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page styling */
+       body{
+        cursor: crosshair;
+    font-family: Arial, sans-serif;
+   background-color: #edf2f7;
+    padding-top: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+        /* Main container */
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+        
+
+        /* LEFT SIDE IMAGES */
+        .image-section{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Image styling */
+        .image-section img{
+            width: 100%;
+            border-radius: 15px;
+            transition: 0.4s;
+}
+
+.image-section img:hover{
+    transform: scale(1.03);
+
+        }
+
+        /* RIGHT SIDE TEXT */
+        .text-section{
+            width: 60%;
+             margin-top: 90px;
+        }
+
+
+
+        /* Paragraphs */
+        .text-section p{
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE IMAGES -->
+        <div class="image-section">
+
+            <img src="christopher-gower-m_HRfLhgABo-unsplash.jpg" alt="My Picture">
+            <!-- <img src="austin-poon-JO_S6ewBqAk-unsplash.jpg" alt="Project Image">
+            <img src="image3.jpg" alt="Another Image"> -->
+
+        </div>
+
+        <!-- RIGHT SIDE TEXT -->
+        <div class="text-section">
+
+            <p>
+                B.SC Computer Science - University of Benin, Benin City, Edo State.
+            </p>
+
+           
+        </div>
+
+    </div>
+
+</body>
+</html>
